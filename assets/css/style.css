@@ -1,0 +1,542 @@
+@charset "UTF-8";
+
+
+
+/* @FONT FACE (enable the use of 'custom fonts' inside your document) */
+
+/* 
+  You can use 'fontsquirrel' (https://www.fontsquirrel.com) 
+  or 'transfonter' (https://transfonter.org)
+  to generate your own font for the web from .ttf or .oft files 
+*/
+
+@font-face {
+  font-family: 'Garamond';
+  src: url('../fonts/agaramondpro-regular-webfont.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Garamond';
+  src: url('../fonts/agaramondpro-regular-webfont.woff2') format('woff2');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+
+/* VARIABLES */
+
+:root {
+  /* Color values */
+  --color-background: rgba(255,255,255,1);
+  --color-text: rgba(0,0,0,1);
+  --color-text-link: rgba(0,0,255,0.8);
+  --color-text-link-hover: rgba(0,0,255,0.4);
+  /* Font values */
+  --font-text: 'Garamond';
+  --font-size: 24px;
+  /* Margin values */
+  --margin: 1rem;
+
+
+  /* Examples of possible variables */
+
+  --font-size-heading: calc(var(--font-size) * 2);
+  --font-size-subheading: calc(var(--font-size) * 1.25);
+  --font-size-caption: calc(var(--font-size) * 0.875);
+
+  --margin-xs: calc(var(--margin) * 0.5);
+  --margin-s: calc(var(--margin) * 1);
+  --margin-m: calc(var(--margin) * 2);
+  --margin-l: calc(var(--margin) * 3);
+  --margin-xl: calc(var(--margin) * 5);
+
+}
+
+
+
+/* GENERAL STYLES */
+
+html {
+  font-family: var(--font-text);
+  font-size: var(--font-size);
+  color: var(--color-text);
+  background-color: var(--color-background);
+}
+
+body {
+  position: relative;
+  background-color: var(--color-background);
+  font-family: var(--font-text);
+  font-size: var(--font-size);
+  color: var(--color-text);
+  width: 100%;
+  height: auto;
+  overflow-y: auto;
+}
+
+a {
+  color: var(--color-text-link);
+  text-decoration: underline;
+}
+
+a:hover {
+  color: var(--color-text-link-hover);
+  text-decoration: underline;
+}
+
+
+/* h1{
+  font-size: clamp(
+    var(--font-size-heading),
+    4vw,
+    calc(var(--font-size-heading) * 1.25)
+  );
+} */
+
+.top-bar {
+  position: absolute;
+  top: 30px;
+  left: 0;
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr;
+
+  align-items: center;
+  padding: 0 50px;
+
+  font-size: 15px;
+  box-sizing: border-box;
+}
+
+.top-left {
+  text-align:left;
+}
+
+.top-center {
+  text-align: center;
+}
+
+.top-right {
+  text-align: right;
+}
+
+/* header.hero {
+  height: 100vh;             
+  display: flex;
+  flex-direction: column;
+  justify-content:flex-start;     
+  align-items:flex-start;       
+  text-align: center;
+  padding: 0px;
+  position: relative;
+} */
+
+.hero-title {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  font-size: 150px;
+}
+
+/* All letters */
+.hero-title span {
+  position: absolute;
+}
+
+/* Position main title: top=160 and left=40 */
+
+.c  { top: 600px; left: 100px; }
+
+.o  { top: 760px; left: 140px; }
+
+.o1 { top: 920px; left: 180px; }
+
+.o2 { top: 1080px; left: 220px; }
+
+.o3 { top: 1240px; left: 260px; }
+
+.o4 { top: 1400px; left: 300px; }
+
+.o5 { top: 1560px; left: 340px; }
+
+.o6 { top: 1720px; left: 300px; }
+
+.o7 { top: 2040px; left: 300px; }
+
+.m1 { top: 2200px; left: 500px; }
+
+.m2 { top: 2360px; left: 500px; }
+
+.m3 { top: 2360px; left: 600px; }
+
+.m4 { top: 2360px; left: 800px; }
+
+.m5 { top: 2360px; left: 1000px; }
+
+.m6 { top: 2380px; left: 1200px; }
+
+.a { top: 2840px; left: 780px; }
+
+.n { top: 3000px; left: 900px; }
+
+.d { top: 3000px; left: 1060px; }
+
+.z { top: 4000px; left: 1550px; }
+
+
+/* Make Hello World BIG */
+/* header.hero h1 {
+  font-size: 200px;   
+  margin-top: 780px;
+  line-height: 1;
+} */
+
+
+/* Add space before main content */
+main {
+  padding-top: 7000px;
+  /*
+  padding-top: 400vw;
+  */
+}
+
+.intro-block {
+  max-width: 47vw;
+  margin-left: 17vw;
+  margin-top: 15vh;
+  line-height: 1.2;
+  text-align: left;
+}
+
+.intro-block-2 {
+  max-width: 29vw;
+  margin-left: 31vw;
+  margin-top: 8vh;
+  line-height: 1.2;
+  text-align: left;
+}
+
+.intro-block-3 {
+  max-width: 45vw;
+  margin-left: 18vw;
+  margin-top: 4vh;
+  line-height: 1.2;
+  text-align: left;
+}
+
+.chapter-1-head{
+  max-width: 50vw;
+  margin-left: 48vw;
+  margin-top: 300vh;
+  line-height: 1.2;
+  text-align: left;
+}
+
+.chapter-1{
+  max-width: 30vw;
+  margin-left: 50vw;
+  margin-top: 0vh;
+  line-height: 1.2;
+  text-align: left;
+}
+
+.chapter-1-1{
+  max-width: 34vw;
+  margin-left: 50.5vw;
+  margin-top: 3vh;
+  margin-bottom: 0;
+  line-height: 1.2;
+  text-align: left;
+}
+
+.chapter-1-2{
+  max-width: 34vw;
+  margin-left: 50vw;
+  margin-top: 0vh;
+  line-height: 1.2;
+  text-align: left;
+}
+
+
+.chapter-2-head{
+  max-width: 50vw;
+  margin-left: 50vw;
+  margin-top: 600vh;
+  margin-bottom: 0;
+  line-height: 1;
+  text-align: left;
+}
+
+.chapter-2{
+  max-width: 50vw;
+  margin-left: 49.7vw;
+  margin-top: 0vh;
+  line-height: 1.2;
+  text-align: left;
+}
+
+
+.chapter-2-head h2,
+.chapter-2-head h3 {
+  margin: 0; /* removes default heading margin */
+}
+
+.chapter-2 p{
+  margin-top: 0; /* removes paragraph top spacing */
+}
+
+
+
+
+h3{
+  /* h3 style */
+}
+
+h4, h5, h6{
+  /* h4-h5-h6 style */
+}
+
+p{
+  /* paragraph style */
+}
+
+ol, ul{
+  /* ordered list and unordered list styles */
+}
+
+blockquote{
+  /* blockquote element style */
+}
+
+hr{
+  /* horizontal rule style */
+}
+
+
+
+/* PAGE STYLES */
+
+/* page structure */
+
+div.page-wrapper {
+  /* the element that 'wraps' everything */
+  /* can also write 5vw or 10rem instead of --margin */
+  padding: var(--margin);
+}
+
+/* navigation */
+ 
+nav{
+  
+}
+
+/* content */
+
+main{
+ 
+}
+
+summary{
+  
+}
+
+/* Footer styling */
+footer {
+  text-align: center;           /* center the content */
+  padding: 2rem 1rem;           /* space above and below */
+  background-color: var(--color-background);
+  color: var(--color-text);
+  position: relative;            /* default, can change to fixed if needed */
+  font-size: 0.9rem;            /* slightly smaller text */
+  letter-spacing: 0.5px;        /* subtle spacing between letters */
+}
+
+footer hr {
+  border: none;
+  border-top: 1px solid #ccc;   /* light separator line */
+  margin-bottom: 1rem;
+  width: 70%;                    /* short line in the middle */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.footer-content a {
+  color: var(--color-text-link); 
+  text-decoration: none;
+  margin: 0 0.5rem;
+  transition: color 0.3s;
+}
+
+.footer-content a:hover {
+  color: var(--color-text-link-hover);
+}
+
+.footer-content .separator {
+  color: #999; /* subtle color for the | */
+}
+
+.footer-content a {
+  color: black;           /* normal text color */
+  text-decoration: none;  /* remove underline */
+  transition: color 0.2s ease;
+}
+
+.footer-content a:hover {
+  color: rgb(255, 255, 255);            /* color when hovering */
+  text-decoration: none;  /* keep underline off */
+}
+
+
+
+
+
+/* UTILITY CLASSES */
+
+/* hide desktop mobile etc */
+/* useful for things you only want on desktop and not on phone or the other way around */
+
+.desktop-only {
+  display: block;
+}
+
+.mobile-only {
+  display: none;
+}
+
+
+
+
+
+/* WEBSITE MEDIA QUERIES */
+
+/* responsive typeface for various breaking points, sets the default 'rem' value */
+/* @media (max-width: 299px) { :root{--font-size: 18px;} html, body {font: var(--font-size) var(--font-text); } }
+@media (min-width: 299px) and (max-width: 340px) { :root{--font-size: 19px;} html, body {font: var(--font-size) var(--font-text); } }
+@media (min-width: 340px) and (max-width: 440px) { :root{--font-size: 20px;} html, body {font: var(--font-size) var(--font-text); } }
+@media (min-width: 441px) and (max-width: 779px) { :root{--font-size: 19px;} html, body {font: var(--font-size) var(--font-text); } }
+@media (min-width: 780px) and (max-width: 992px) { :root{--font-size: 20px;} html, body {font: var(--font-size) var(--font-text); 
+background-color: pink;} }
+@media (min-width: 993px) and (max-width: 1200px) { :root{--font-size: 21px;} html, body {font: var(--font-size) var(--font-text); } }
+@media (min-width: 1201px) and (max-width: 1320px) { :root{--font-size: 22px;} html, body {font: var(--font-size) var(--font-text); } }
+@media (min-width: 1321px) { :root{--font-size: 24px;} html, body {font: var(--font-size) var(--font-text); } } */
+
+/* Medium screens: center blocks */
+@media (max-width: 1320px) {
+  .intro-block,
+  .intro-block-2,
+  .intro-block-3,
+  .chapter-1-head,
+  .chapter-1,
+  .chapter-1-1,
+  .chapter-1-2,
+  .chapter-2-head,
+  .chapter-2 {
+    max-width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .my-block{
+    margin-top:100vw;
+  }
+}
+
+/* Smaller screens: wider blocks */
+@media (max-width: 992px) {
+  .intro-block,
+  .intro-block-2,
+  .intro-block-3,
+  .chapter-1-head,
+  .chapter-1,
+  .chapter-1-1,
+  .chapter-1-2,
+  .chapter-2-head,
+  .chapter-2 {
+    max-width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* Mobile screens: full width, typewriter style */
+@media (max-width: 779px) {
+  .intro-block,
+  .intro-block-2,
+  .intro-block-3,
+  .chapter-1-head,
+  .chapter-1,
+  .chapter-1-1,
+  .chapter-1-2,
+  .chapter-2-head,
+  .chapter-2,
+  figure {
+    max-width: 100%;
+    margin-left: 0.5rem;   /* tiny left margin */
+    margin-right: 0.5rem;  /* tiny right margin */
+    padding: 0;             /* no extra padding */
+    hyphens: auto;        
+    word-break: break-word;
+    line-height: 1.4;
+    text-align: left;
+  }
+
+  section:nth-child(odd) p { text-indent: 0.5rem; }
+  section:nth-child(even) p { text-indent: 1rem; }
+}
+
+/* styles for 'mobile', screen sizes up to 779px, should covers 'mobile' and 'tablet' */
+/* style this one first and then use the subsequent ones in a cascading way (from general to specific) */
+
+@media (max-width: 779px) {
+
+  /* your 'mobile' overriding css properties here */
+
+
+
+  /* utility classes, mobile */
+
+  .desktop-only{
+    display:none;
+  }
+
+  .mobile-only{
+    display:block;
+  }
+
+}
+
+
+
+/* use this query to apply style changes to smaller smartphones sizes (like an iPhone 5S or SE 2016), max size of 339px */
+
+@media (max-width: 339px) {
+
+  /* your overriding css properties here */
+
+}
+
+
+
+/* use this query to apply style changes for 'mobile' screen sizes that are flipped in 'landscape' mode */
+
+@media (max-width: 779px) and (orientation: landscape) {
+
+   /* your overriding css properties here */
+
+}
+
+
+
+/* use this query to apply style for 'small' desktop screens */
+
+@media (min-width: 780px) and (max-width: 992px) {
+
+  /* your overriding css properties here */
+
+}
+
+
