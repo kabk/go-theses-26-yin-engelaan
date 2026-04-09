@@ -1,0 +1,885 @@
+@charset "UTF-8";
+
+/* @FONT FACE (enable the use of 'custom fonts' inside your document) */
+
+/* 
+  You can use 'fontsquirrel' (https://www.fontsquirrel.com) 
+  or 'transfonter' (https://transfonter.org)
+  to generate your own font for the web from .ttf or .oft files 
+*/
+
+@font-face {
+  font-family: 'Garamond';
+  src: url('../fonts/agaramondpro-regular-webfont.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Garamond';
+  src: url('../fonts/AGaramondPro-Italic.woff2') format('woff2');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+
+/* VARIABLES */
+
+:root {
+  /* Color values */
+  --color-background: rgba(255,255,255,1);
+  --color-text: rgba(0,0,0,1);
+  --color-text-link: rgba(0,0,255,0.8);
+  --color-text-link-hover: rgba(0,0,255,0.4);
+  /* Font values */
+  --font-text: 'Garamond';
+  --font-size: 24px;
+  /* Margin values */
+  --margin: 1rem;
+
+
+  /* Examples of possible variables */
+
+  --font-size-heading: calc(var(--font-size) * 2);
+  --font-size-subheading: calc(var(--font-size) * 1.25);
+  --font-size-caption: calc(var(--font-size) * 0.875);
+
+  --margin-xs: calc(var(--margin) * 0.5);
+  --margin-s: calc(var(--margin) * 1);
+  --margin-m: calc(var(--margin) * 2);
+  --margin-l: calc(var(--margin) * 3);
+  --margin-xl: calc(var(--margin) * 5);
+
+}
+
+/* =========================
+   IMAGE TOGGLE BUTTON
+========================= */
+
+.image-toggle-btn {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 2000;
+
+  font-family: var(--font-text);
+  font-size: 16px;
+
+  background: white;
+  border: 1px solid black;
+  padding: 8px 12px;
+
+  cursor: pointer;
+}
+
+.image-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(255,255,255,0.95);
+
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  z-index: 1999;
+}
+
+.image-overlay.active {
+  display: flex;
+}
+
+.image-display {
+  max-width: 90vw;
+  max-height: 80vh;
+  object-fit: contain;
+}
+
+.image-caption {
+  position: absolute;
+  bottom: 30px;
+  max-width: calc(100% - 9rem);
+  font-size: var(--font-size-caption);
+  text-align: center;
+}
+
+button {
+  -webkit-appearance: none;
+  appearance: none;
+  color: black;
+}
+
+/* NAV BUTTONS */
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  background: none;
+  border: none;
+  font-size: 50px;
+  cursor: pointer;
+
+  user-select: none;
+}
+
+.nav-btn.left {
+  left: 20px;
+}
+
+.nav-btn.right {
+  right: 20px;
+}
+
+
+/* GENERAL STYLES */
+
+.command-bar{
+
+  position: sticky;
+  top: 0;
+
+  width: 100%;
+  height: 110px;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  padding-top: 25px;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(255,255,255,1) 10%,
+    rgba(255,255,255,0) 100%
+  );
+
+  z-index: 999;
+}
+
+.command-text{
+  font-size: 18px;
+  letter-spacing: 0.10em;
+  display: inline-block;
+  position: relative;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-3px); }
+  50% { transform: translateX(3px); }
+  75% { transform: translateX(-3px); }
+  100% { transform: translateX(0); }
+}
+
+.shake {
+  animation: shake 0.3s ease-in-out;
+}
+
+/* .shake{
+  animation: shake 0.3s;
+} */
+
+html {
+  font-family: var(--font-text);
+  font-size: var(--font-size);
+  color: var(--color-text);
+  background-color: var(--color-background);
+}
+
+body {
+  position: relative;
+  background-color: var(--color-background);
+  font-family: var(--font-text);
+  font-size: var(--font-size);
+  color: var(--color-text);
+  width: 100%;
+  height: auto;
+  overflow-y: auto;
+}
+
+a {
+  color: var(--color-text-link);
+  text-decoration: underline;
+}
+
+a:hover {
+  color: var(--color-text-link-hover);
+  text-decoration: underline;
+}
+
+
+.top-bar {
+  position: absolute;
+  top: 30px;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+
+  align-items: center;
+  padding: 0 50px;
+
+  font-size: 15px;
+  box-sizing: border-box;
+
+}
+
+.top-left {
+  text-align:left;
+}
+
+.top-center {
+  text-align: center;
+}
+
+.top-right {
+  text-align: right;
+}
+
+.hero-title {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  font-size: 150px;
+}
+
+/* All letters */
+.hero-title span {
+  position: absolute;
+}
+
+
+.c  { top: 55.6vh; left: 5.2vw; }
+
+.o  { top: 70.4vh; left: 7.3vw; }
+
+.o1 { top: 85.2vh; left: 9.4vw; }
+
+.o2 { top: 100vh; left: 11.5vw; }
+
+.o3 { top: 114.8vh; left: 13.5vw; }
+
+.o4 { top: 129.6vh; left: 15.6vw; }
+
+.o5 { top: 144.4vh; left: 17.7vw; }
+
+.o6 { top: 159.3vh; left: 15.6vw; }
+
+.o7 { top: 188.9vh; left: 15.6vw; }
+
+.m1 { top: 203.7vh; left: 26vw; }
+
+.m2 { top: 218.5vh; left: 26vw; }
+
+.m3 { top: 218.5vh; left: 31.3vw; }
+
+.m4 { top: 218.5vh; left: 41.7vw; }
+
+.m5 { top: 218.5vh; left: 52.1vw; }
+
+.m6 { top: 220.4vh; left: 62.5vw; }
+
+.a { top: 263vh; left: 40.6vw; }
+
+.n { top: 277.8vh; left: 46.9vw; }
+
+.d { top: 277.8vh; left: 55.2vw; }
+
+.z { top: 370.4vh; left: 80.7vw; }
+
+
+/* Add space before main content */
+main {
+  padding-top: 4000px;
+  /*
+  padding-top: 400vw;
+  */
+}
+
+.abstract-head{
+  max-width: 45vw;
+  margin-left: 46vw;
+  margin-top: 10vh;
+  line-height: 1.2;
+  text-align: left;  
+}
+
+.abstract-text{
+  max-width: 58vw;
+  margin-left: 23vw;
+  margin-top: 8vh;
+  line-height: 1.2;
+  text-align: left;
+}
+
+.intro-block {
+  max-width: 47vw;
+  margin-left: 17vw;
+  margin-top: 150vh;
+  line-height: 1.2;
+  text-align: left;
+}
+
+.intro-block-2 {
+  max-width: 29vw;
+  margin-left: 31vw;
+  margin-top: 8vh;
+  line-height: 1.2;
+  text-align: left;
+}
+
+.intro-block-3 {
+  max-width: 45vw;
+  margin-left: 18vw;
+  margin-top: 4vh;
+  line-height: 1.2;
+  text-align: left;
+}
+
+
+.chapter-1-head{
+  max-width: 50vw;
+  margin-left: 48vw;
+  margin-top: 300vh;
+  line-height: 1.2;
+  text-align: left;
+}
+
+.chapter-1{
+  max-width: 30vw;
+  margin-left: 50vw;
+  margin-top: 0vh;
+  line-height: 1.2;
+  text-align: left;
+}
+
+.chapter-1-1{
+  max-width: 34vw;
+  margin-left: 50.5vw;
+  margin-top: 3vh;
+  margin-bottom: 0;
+  line-height: 1.2;
+  text-align: left;
+}
+
+.chapter-1-2{
+  max-width: 34vw;
+  margin-left: 50vw;
+  margin-top: 0vh;
+  line-height: 1.2;
+  text-align: left;
+}
+
+
+.chapter-2-head{
+  max-width: 50vw;
+  margin-left: 50vw;
+  margin-top: 600vh;
+  margin-bottom: 0;
+  line-height: 1;
+  text-align: left;
+}
+
+.chapter-2{
+  max-width: 35vw;
+  margin-left: 49.7vw;
+  margin-top: 0vh;
+  line-height: 1.2;
+  text-align: left;
+}
+
+.chapter-2-1{
+  max-width: 40vw;
+  margin-left: 50vw;
+  margin-top: 0vh;
+  line-height: 1.2;
+  text-align: left;
+}
+
+.chapter-2-2{
+  max-width: 40vw;
+  margin-left: 51vw;
+  margin-top: 3vh;
+  line-height: 1.2;
+  text-align: left;
+}
+
+.chapter-2-3{
+  max-width: 40vw;
+  margin-left: 51vw;
+  margin-top: 3vh;
+  line-height: 1.2;
+  text-align: left;
+}
+
+.chapter-3-head{
+  max-width: 50vw;
+  margin-left: 30vw;
+  margin-top: 200vh;
+  margin-bottom: 0;
+  line-height: 1;
+  text-align: left;
+}
+
+.chapter-3{
+  max-width: 50vw;
+  margin-left: 28vw;
+  margin-top: 1vh;
+  line-height: 1.2;
+  text-align: left;
+}
+
+.chapter-3-1{
+  max-width: 50vw;
+  margin-left: 28vw;
+  margin-top: 1vh;
+  line-height: 1.2;
+  text-align: left;
+}
+
+.chapter-3-2{
+  max-width: 46vw;
+  margin-left: 32vw;
+  margin-top: 1vh;
+  line-height: 1.2;
+  text-align: left;
+}
+
+.chapter-3-3{
+  max-width: 43vw;
+  margin-left: 30vw;
+  margin-top: 1vh;
+  line-height: 1.2;
+  text-align: left;
+}
+
+.conclusion-head{
+  max-width: 80vw;
+  margin-left: 10vw;
+  margin-top: 200vh;
+  margin-bottom: 0;
+  line-height: 1;
+  text-align: left;
+}
+
+.conclusion-text{
+  max-width: 60vw;
+  margin-left: 10.5vw;
+  margin-top: 6vh;
+  line-height: 1.2;
+  text-align: left;
+}
+
+.conclusion-text-2{
+  max-width: 60vw;
+  margin-left: 10vw;
+  margin-top: 0vh;
+  line-height: 1.1;
+  text-align: left;
+}
+
+.bibliography-head{
+  max-width: 45vw;
+  margin-left: 20vw;
+  margin-top: 50vh;
+  line-height: 1.2;
+  text-align: left;  
+}
+
+.bibliography-text{
+  max-width: 50vw;
+  margin-left: 20vw;
+  margin-top: 6vh;
+  line-height: 1.3;
+  text-align: left;
+}
+
+.acknowledgements-head{
+  max-width: 45vw;
+  margin-left: 3vw;
+  margin-top: 120vh;
+  line-height: 1.2;
+  text-align: left;  
+}
+
+.acknowledgements-text{
+  max-width: 30vw;
+  margin-left: 4vw;
+  margin-top: 1vh;
+  line-height: 1;
+  text-align: left;
+}
+
+.statement-head{
+  max-width: 45vw;
+  margin-left: 3vw;
+  margin-top: 120vh;
+  line-height: 1.2;
+  text-align: left;   
+}
+
+.statement-text{
+  max-width: 30vw;
+  margin-left: 4vw;
+  margin-top: 1vh;
+  line-height: 1;
+  text-align: left;
+}
+
+.statement-text-2{
+  max-width: 40vw;
+  margin-left: 10vw;
+  margin-top: 7vh;
+  line-height: 1;
+  text-align: left;
+}
+
+.chapter-2-head h2,
+.chapter-2-head h3 {
+  margin: 0; /* removes default heading margin */
+}
+
+.chapter-2 p{
+  margin-top: 0; /* removes paragraph top spacing */
+}
+
+
+
+
+
+
+/* PAGE STYLES */
+
+/* page structure */
+
+div.page-wrapper {
+  /* the element that 'wraps' everything */
+  /* can also write 5vw or 10rem instead of --margin */
+  padding: var(--margin);
+} 
+
+/* Footer styling */
+footer {
+  text-align: center;         
+  padding: 2rem 1rem;           
+  background-color: var(--color-background);
+  color: var(--color-text);
+  position: relative;           
+  font-size: 0.9rem;           
+  letter-spacing: 0.5px;        
+}
+
+footer hr {
+  border: none;
+  border-top: 1px solid #ccc;   
+  margin-bottom: 1rem;
+  width: 70%;                    
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.footer-content a {
+  color: var(--color-text-link); 
+  text-decoration: none;
+  margin: 0 0.5rem;
+  transition: color 0.3s;
+}
+
+.footer-content a:hover {
+  color: var(--color-text-link-hover);
+}
+
+.footer-content .separator {
+  color: #999; 
+}
+
+.footer-content a {
+  color: black;           
+  text-decoration: none;  
+  transition: color 0.2s ease;
+}
+
+.footer-content a:hover {
+  color: rgb(255, 255, 255);          
+  text-decoration: none;  
+}
+
+.top-bar a {
+  color: black !important;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.top-bar a:hover {
+  color: rgb(255, 255, 255) !important;
+  text-decoration: none;
+}
+
+
+
+
+/* UTILITY CLASSES */
+
+/* hide desktop mobile etc */
+/* useful for things you only want on desktop and not on phone or the other way around */
+
+.desktop-only {
+  display: block;
+}
+
+.mobile-only {
+  display: none;
+}
+
+
+
+
+
+/* WEBSITE MEDIA QUERIES */
+
+/* responsive typeface for various breaking points, sets the default 'rem' value */
+/* @media (max-width: 299px) { :root{--font-size: 18px;} html, body {font: var(--font-size) var(--font-text); } }
+@media (min-width: 299px) and (max-width: 340px) { :root{--font-size: 19px;} html, body {font: var(--font-size) var(--font-text); } }
+@media (min-width: 340px) and (max-width: 440px) { :root{--font-size: 20px;} html, body {font: var(--font-size) var(--font-text); } }
+@media (min-width: 441px) and (max-width: 779px) { :root{--font-size: 19px;} html, body {font: var(--font-size) var(--font-text); } }
+@media (min-width: 780px) and (max-width: 992px) { :root{--font-size: 20px;} html, body {font: var(--font-size) var(--font-text); 
+background-color: pink;} }
+@media (min-width: 993px) and (max-width: 1200px) { :root{--font-size: 21px;} html, body {font: var(--font-size) var(--font-text); } }
+@media (min-width: 1201px) and (max-width: 1320px) { :root{--font-size: 22px;} html, body {font: var(--font-size) var(--font-text); } }
+@media (min-width: 1321px) { :root{--font-size: 24px;} html, body {font: var(--font-size) var(--font-text); } } */
+
+/* Medium screens: center blocks */
+@media (max-width: 1320px) {
+  .abstract-head,
+  .abstract-text,
+  .intro-block,
+  .intro-block-2,
+  .intro-block-3,
+  .chapter-1-head,
+  .chapter-1,
+  .chapter-1-1,
+  .chapter-1-2,
+  .chapter-2-head,
+  .chapter-2,
+  .chapter-2-1, 
+  .chapter-2-2,
+  .chapter-2-3,
+  .chapter-3,
+  .chapter-3-1,
+  .chapter-3-2,
+  .chapter-3-3,
+  .conclusion-head,
+  .conclusion-text,
+  .conclusion-text-2,
+  .bibliography-head,
+  .bibliography-text,
+  .statement-head,
+  .statement-text,
+  .statement-text-2,
+  .acknowledgements-head,
+  .acknowledgements-text
+  {
+    max-width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .my-block{
+    margin-top:100vw;
+  }
+}
+
+/* Smaller screens: wider blocks */
+@media (max-width: 992px) {
+  .abstract-head,
+  .abstract-text,
+  .intro-block,
+  .intro-block-2,
+  .intro-block-3,
+  .chapter-1-head,
+  .chapter-1,
+  .chapter-1-1,
+  .chapter-1-2,
+  .chapter-2-head,
+  .chapter-2,
+  .chapter-2-1, 
+  .chapter-2-2,
+  .chapter-2-3,
+  .chapter-3,
+  .chapter-3-1,
+  .chapter-3-2,
+  .chapter-3-3,
+  .conclusion-head,
+  .conclusion-text,
+  .conclusion-text-2,
+  .bibliography-head,
+  .bibliography-text,
+  .statement-head,
+  .statement-text,
+  .statement-text-2,
+  .acknowledgements-head,
+  .acknowledgements-text
+   {
+    max-width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* Mobile screens: full width, typewriter style */
+@media (max-width: 779px) {
+  .abstract-head,
+  .abstract-text,
+  .intro-block,
+  .intro-block-2,
+  .intro-block-3,
+  .chapter-1-head,
+  .chapter-1,
+  .chapter-1-1,
+  .chapter-1-2,
+  .chapter-2-head,
+  .chapter-2,
+  .chapter-2-1,
+  .chapter-2-2,
+  .chapter-2-3,
+  .chapter-3,
+  .chapter-3-1,
+  .chapter-3-2,
+  .chapter-3-3,
+  .conclusion-head,
+  .conclusion-text,
+  .conclusion-text-2,
+  .bibliography-head,
+  .bibliography-text,
+  .statement-head,
+  .statement-text,
+  .statement-text-2,
+  .acknowledgements-head,
+  .acknowledgements-text,
+  figure {
+    max-width: 100%;
+    margin-left: 0.5rem;   /* tiny left margin */
+    margin-right: 0.5rem;  /* tiny right margin */
+    padding: 0;             /* no extra padding */
+    hyphens: auto;        
+    word-break: break-word;
+    line-height: 1;
+    text-align: left;
+    font-size: 22px;
+
+  
+  }
+
+  section:nth-child(odd) p { text-indent: 0.5rem; }
+  section:nth-child(even) p { text-indent: 1rem; }
+}
+
+/* styles for 'mobile', screen sizes up to 779px, should covers 'mobile' and 'tablet' */
+/* style this one first and then use the subsequent ones in a cascading way (from general to specific) */
+
+@media (max-width: 779px) {
+
+  /* your 'mobile' overriding css properties here */
+
+  /* utility classes, mobile */
+
+  .hero-title {
+    height: 400vh; /* adjust if needed */
+    font-size: 10vw;          /* was 150px → now responsive */
+    transform: scale(1);   /* shrink whole composition slightly */
+    transform-origin: top left;
+  }
+
+    .image-caption {
+    position: absolute;
+    bottom: 80px;              /* sits above button */
+    left: 1rem;
+    right: 1rem;
+    /* transform: translateX(-50%); */
+    max-width: none;
+    width: auto;
+    text-align: center;
+    line-height: 1.3;
+  }
+
+    .image-overlay {
+    padding-bottom: 80px;      /* prevents overlap with button */
+
+  }
+    .image-display {
+    max-width: 80vw;   /* smaller width */
+    max-height: 60vh;  /* smaller height */
+  }
+
+
+  main {
+    padding-top: 10rem !important; /* keep this */
+  }
+
+  /*FIX HUGE SPACING ON MOBILE */
+  section {
+    margin-top: 1.5rem !important;
+  }
+
+  h2 {
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+
+  /* FIX MASSIVE TOP GAP */
+  main {
+    padding-top: 2rem !important;
+  }
+
+  /* utility classes, mobile */
+
+  .desktop-only{
+    display:none;
+  }
+
+  .mobile-only{
+    display:block;
+  }
+
+}
+
+
+
+/* use this query to apply style changes to smaller smartphones sizes (like an iPhone 5S or SE 2016), max size of 339px */
+
+@media (max-width: 339px) {
+
+  /* your overriding css properties here */
+
+}
+
+
+
+/* use this query to apply style changes for 'mobile' screen sizes that are flipped in 'landscape' mode */
+
+@media (max-width: 779px) and (orientation: landscape) {
+
+   /* your overriding css properties here */
+
+}
+
+
+
+/* use this query to apply style for 'small' desktop screens */
+
+@media (min-width: 780px) and (max-width: 992px) {
+
+  /* your overriding css properties here */
+
+}
+
+
