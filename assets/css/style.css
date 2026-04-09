@@ -541,7 +541,7 @@ main {
 
 .note-head{
   max-width: 40vw;
-  margin-left: 31vw;
+  margin-left: 32vw;
   margin-top: 20vh;
   line-height: 1;
   text-align: left;
@@ -555,13 +555,38 @@ main {
   text-align: left;
 }
 
+
+
+.external-button-wrapper {
+  margin-top: 2rem;
+
+  display: flex;
+  justify-content: center;
+}
+
+.external-button {
+  display: inline-block;
+}
+
+.external-button img {
+  width: 40px; 
+  height: auto;
+  transition: opacity 0.2s ease;
+}
+
+.external-button:hover img {
+  opacity: 0.4; 
+}
+
+
+
 .chapter-2-head h2,
 .chapter-2-head h3 {
-  margin: 0; /* removes default heading margin */
+  margin: 0; 
 }
 
 .chapter-2 p{
-  margin-top: 0; /* removes paragraph top spacing */
+  margin-top: 0; 
 }
 
 
