@@ -539,6 +539,22 @@ main {
   text-align: left;
 }
 
+.note-head{
+  max-width: 40vw;
+  margin-left: 31vw;
+  margin-top: 20vh;
+  line-height: 1;
+  text-align: left;
+}
+
+.note-text{
+  max-width: 40vw;
+  margin-left: 31vw;
+  margin-top: 0vh;
+  line-height: 1;
+  text-align: left;
+}
+
 .chapter-2-head h2,
 .chapter-2-head h3 {
   margin: 0; /* removes default heading margin */
@@ -682,7 +698,9 @@ background-color: pink;} }
   .statement-text,
   .statement-text-2,
   .acknowledgements-head,
-  .acknowledgements-text
+  .acknowledgements-text,
+  .note-head,
+  .note-text
   {
     max-width: 50%;
     margin-left: auto;
@@ -722,7 +740,9 @@ background-color: pink;} }
   .statement-text,
   .statement-text-2,
   .acknowledgements-head,
-  .acknowledgements-text
+  .acknowledgements-text,
+  .note-head,
+  .note-text
    {
     max-width: 70%;
     margin-left: auto;
@@ -760,6 +780,8 @@ background-color: pink;} }
   .statement-text-2,
   .acknowledgements-head,
   .acknowledgements-text,
+  .note-head,
+  .note-text,
   figure {
     max-width: 100%;
     margin-left: 0.5rem;   /* tiny left margin */
